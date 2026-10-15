@@ -3,214 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Fundación Carlos Barela · Voluntarios latinos en Montreal</title>
-<meta name="description" content="La Fundación Carlos Barela es una red de voluntarios latinos en Montreal que acompaña, visita, traslada y orienta a inmigrantes latinos en situación de vulnerabilidad: personas mayores, enfermos y recién llegados.">
-<meta name="theme-color" content="#2FA84F">
+<title>Fundación Carlos Barela · Del Ávila al Mont Royal</title>
+<meta name="description" content="Voluntarios latinos en Montreal que acompañan, visitan, trasladan y orientan a latinos en situación vulnerable: personas mayores, enfermos y recién llegados.">
+<meta name="theme-color" content="#0B1F3A">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- carga: brote que crece -->
-<div class="loader" id="loader" aria-hidden="true">
-  <img class="loader-logo" src="logo-full.webp" alt="" width="260">
-</div>
+<div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <header class="header" id="header">
-  <div class="wrap header-in">
-    <a href="#inicio" class="brand"><img src="logo-icon.webp" alt="Logo Fundación Carlos Barela" width="70" height="40"><span>Fundación<b>Carlos Barela</b></span></a>
-    <nav class="nav" id="nav">
-      <a href="#mision">Misión</a><a href="#ayuda">Cómo ayudamos</a><a href="#proceso">El proceso</a><a href="#sumate">Súmate</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a>
-    </nav>
-    <a href="#sumate" class="btn btn-sun magnetic">Donar</a>
-    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span></button>
-  </div>
+  <a href="#inicio" class="brand"><img src="logo-icon.webp" alt="Logo Fundación Carlos Barela" width="64" height="36"><span>Fundación<b>Carlos Barela</b></span></a>
+  <nav class="nav" id="nav">
+    <a href="#hacemos">Qué hacemos</a><a href="#metro">Cómo funciona</a><a href="#somos">Quiénes somos</a><a href="#sumate">Súmate</a><a href="#contacto">Contacto</a>
+  </nav>
+  <a href="#contacto" class="pill-btn gold">Pedir ayuda</a>
+  <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
 </header>
 
 <main>
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="inicio">
-  <canvas class="leaves" id="leaves" aria-hidden="true"></canvas>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="tag reveal"><span class="dot"></span>Voluntarios latinos en Montreal</p>
-      <h1 class="hero-title"><span class="line">Nadie debería</span><span class="line">estar solo</span><span class="line"><em>lejos de casa.</em></span></h1>
-      <p class="hero-sub reveal">Somos un grupo de voluntarios latinos que acompaña, visita, lleva a sus citas y orienta a latinos en situación vulnerable en Montreal: abuelitos, personas enfermas y quienes llegaron sin nadie.</p>
-      <div class="hero-cta reveal">
-        <a href="#contacto" class="btn btn-green btn-lg magnetic" data-help>Necesito ayuda <i>→</i></a>
-        <a href="#sumate" class="btn btn-ghost btn-lg">Quiero ayudar</a>
+<!-- ═══ EL VIAJE: Caracas → Montreal (escena fijada con scroll) ═══ -->
+<section class="journey" id="inicio">
+  <div class="stage" id="stage">
+    <div class="sky" id="sky"></div>
+    <svg class="scene" id="scene" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="gAvila" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9C95A"/><stop offset="1" stop-color="#2E7D3A"/></linearGradient>
+        <linearGradient id="gAvila2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FA53F"/><stop offset="1" stop-color="#1F5E2C"/></linearGradient>
+        <linearGradient id="gRoyal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CC0E8"/><stop offset="1" stop-color="#2C65A0"/></linearGradient>
+        <linearGradient id="gGround" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5E9E3E"/><stop offset=".36" stop-color="#4C8A36"/><stop offset=".40" stop-color="#2B6CA3"/><stop offset=".60" stop-color="#2B6CA3"/><stop offset=".64" stop-color="#DCE8F3"/><stop offset="1" stop-color="#EEF5FB"/></linearGradient>
+        <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B8FD0"/><stop offset="1" stop-color="#1B4F8A"/></linearGradient>
+      </defs>
+      <!-- sol y luna (fijos en pantalla, los mueve el JS) -->
+      <circle id="sun" cx="1250" cy="230" r="80" fill="#FFD447"/>
+      <g id="moon" opacity="0"><circle cx="1250" cy="200" r="54" fill="#F4F1E1"/><circle cx="1272" cy="186" r="50" fill="#0F2A4E" id="moonCut"/></g>
+      <!-- arco de 8 estrellas -->
+      <g id="stars8"></g>
+      <!-- mundo que se desplaza -->
+      <g id="world"></g>
+      <!-- avión -->
+      <g id="plane" opacity="0">
+        <path id="trail" d="" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round" opacity=".8"/>
+        <g id="planeBody">
+          <path d="M-70 0 C-40 -10 40 -12 70 -4 C80 -2 80 4 70 6 C40 12 -40 12 -70 4 Z" fill="#fff"/>
+          <path d="M-10 0 L-40 -46 L-24 -46 L22 -2 Z" fill="#E7EEF6"/>
+          <path d="M-10 4 L-36 40 L-22 40 L20 6 Z" fill="#D5E0EC"/>
+          <path d="M-62 -2 L-78 -30 L-66 -30 L-48 -2 Z" fill="#FFCC00"/>
+          <path d="M-68 -14 L-74 -26 L-67 -26 L-60 -14Z" fill="#1F4E9E"/>
+          <circle cx="54" cy="-2" r="3" fill="#9FB8D2"/><circle cx="40" cy="-3" r="3" fill="#9FB8D2"/><circle cx="26" cy="-3" r="3" fill="#9FB8D2"/>
+        </g>
+      </g>
+    </svg>
+
+    <!-- textos del viaje -->
+    <div class="beats">
+      <div class="beat b0 on">
+        <p class="eyebrow"><span class="dot"></span>Voluntarios latinos en Montreal</p>
+        <h1 class="mega"><span class="ln">Del <em class="g">Ávila</em></span><span class="ln">al <em class="b">Mont Royal,</em></span><span class="ln">nadie camina solo.</span></h1>
+        <div class="cta-row">
+          <a href="#contacto" class="pill-btn gold big magnetic">Necesito ayuda <i>→</i></a>
+          <a href="#sumate" class="pill-btn glass big">Quiero ser voluntario</a>
+        </div>
+        <p class="scroll-hint"><span></span>Desliza para ver el viaje</p>
       </div>
-      <ul class="pills reveal"><li>Voluntarios</li><li>Gratis</li><li>En español</li><li>Con cariño</li></ul>
+      <div class="beat b1"><p class="place">Caracas · Venezuela</p><h2>Dejamos atrás nuestra tierra, nuestra gente y nuestro Ávila…</h2></div>
+      <div class="beat b2"><p class="place">7 horas · 4.000 km</p><h2>…con la maleta llena de recuerdos y muchas preguntas.</h2></div>
+      <div class="beat b3"><p class="place">Montréal · Québec</p><h2>Llegamos a otra ciudad, otro idioma y un invierno de verdad.</h2></div>
+      <div class="beat b4"><p class="place">Fundación Carlos Barela</p><h2>Aquí nos tenemos los unos a los otros.</h2><p class="sub">Somos voluntarios latinos que acompañan, visitan, llevan a sus citas y orientan a quien está solo: abuelitos, enfermos y recién llegados.</p><a href="#hacemos" class="pill-btn gold big">Ver cómo ayudamos <i>↓</i></a></div>
     </div>
-    <!-- mapa: rutas que llegan a un hogar -->
-    <div class="hero-art" aria-hidden="true">
-      <svg class="map" viewBox="0 0 600 560" id="mapSvg">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7BE38F" stop-opacity=".55"/><stop offset="1" stop-color="#7BE38F" stop-opacity="0"/></radialGradient>
-          <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#1F7A39" opacity=".28"/></pattern>
-        </defs>
-        <circle cx="300" cy="280" r="250" fill="url(#dots)"/>
-        <circle cx="330" cy="250" r="150" fill="url(#glow)" class="pulse-glow"/>
-        <!-- rutas -->
-        <g class="routes" fill="none" stroke-linecap="round">
-          <path d="M80 430 C150 360 230 330 330 250" />
-          <path d="M120 120 C210 140 280 170 330 250" />
-          <path d="M540 470 C480 380 400 320 330 250" />
-          <path d="M520 90 C470 150 400 200 330 250" />
-          <path d="M60 260 C160 230 250 240 330 250" />
-        </g>
-        <g class="origins">
-          <circle cx="80" cy="430" r="7"/><circle cx="120" cy="120" r="7"/><circle cx="540" cy="470" r="7"/><circle cx="520" cy="90" r="7"/><circle cx="60" cy="260" r="7"/>
-        </g>
-        <!-- viajeros -->
-        <g class="travelers"><circle r="6"/><circle r="6"/><circle r="6"/><circle r="6"/><circle r="6"/></g>
-        <!-- hogar -->
-        <g class="home" transform="translate(330 250)">
-          <circle r="54" class="home-ring"/>
-          <circle r="40" fill="#2FA84F"/>
-          <path d="M-18 4 L0 -14 L18 4 V20 H-18Z" fill="#fff"/>
-          <path d="M-6 20 V9 H6 V20" fill="#2FA84F"/>
-          <path d="M-4 -1 C-8 -6 -2 -11 0 -6 C2 -11 8 -6 4 -1 L0 3Z" fill="#F5C842"/>
-        </g>
-        <!-- etiquetas de idioma -->
-        <g class="langs">
-          <g transform="translate(150 470)"><g><rect x="-38" y="-17" width="76" height="34" rx="17"/><text y="5">Hola</text></g></g>
-          <g transform="translate(470 520)"><g><rect x="-42" y="-17" width="84" height="34" rx="17"/><text y="5">Merci</text></g></g>
-          <g transform="translate(470 40)"><g><rect x="-52" y="-17" width="104" height="34" rx="17"/><text y="5">Bonjour</text></g></g>
-          <g transform="translate(110 60)"><g><rect x="-62" y="-17" width="124" height="34" rx="17"/><text y="5">Montréal</text></g></g>
-        </g>
-      </svg>
-    </div>
+    <div class="progress" aria-hidden="true"><span class="pv">Caracas</span><div class="bar"><i id="bar"></i><b id="barPlane">✈</b></div><span class="pm">Montréal</span></div>
   </div>
-  <!-- personas que llegan, y voluntarios que acompañan -->
-  <div class="walkers" id="walkers" aria-hidden="true"><div class="walk-track" id="walkTrack"></div><div class="road"></div></div>
 </section>
 
-<!-- marquee -->
-<div class="marquee" aria-hidden="true"><div class="marquee-track">
-  <span>Acompañamiento</span><i>✦</i><span>Visitas</span><i>✦</i><span>Transporte</span><i>✦</i><span>Traducción</span><i>✦</i><span>Asistencia legal</span><i>✦</i><span>Trámites</span><i>✦</i><span>Comunidad</span><i>✦</i>
-  <span>Acompañamiento</span><i>✦</i><span>Visitas</span><i>✦</i><span>Transporte</span><i>✦</i><span>Traducción</span><i>✦</i><span>Asistencia legal</span><i>✦</i><span>Trámites</span><i>✦</i><span>Comunidad</span><i>✦</i>
+<!-- cinta tricolor -->
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span>Acompañamiento</span><b>✦</b><span>Visitas</span><b>✦</b><span>Transporte</span><b>✦</b><span>Traducción</span><b>✦</b><span>Asistencia legal</span><b>✦</b><span>Trámites</span><b>✦</b><span>Comunidad</span><b>✦</b><span>Acompañamiento</span><b>✦</b><span>Visitas</span><b>✦</b><span>Transporte</span><b>✦</b><span>Traducción</span><b>✦</b><span>Asistencia legal</span><b>✦</b><span>Trámites</span><b>✦</b><span>Comunidad</span><b>✦</b>
 </div></div>
 
-<!-- ═══ MISIÓN: texto que se ilumina con el scroll ═══ -->
-<section class="mission" id="mision">
+<!-- ═══ QUÉ HACEMOS: bento animado ═══ -->
+<section class="what" id="hacemos">
   <div class="wrap">
-    <p class="kicker reveal">Nuestra misión</p>
-    <p class="scrub" id="scrub">Enfermarse sin nadie que te lleve al médico, envejecer lejos de tu familia o llegar a Montreal sin hablar francés es muy duro. Hay latinos que hoy enfrentan el invierno, los hospitales y los trámites completamente solos. La Fundación Carlos Barela es una red de voluntarios latinos que existe para que nadie pase por eso solo: somos esa mano amiga que acompaña, visita y cuida.</p>
+    <div class="head">
+      <p class="kicker">Qué hacemos</p>
+      <h2 class="h2 split">Un voluntario a tu lado cuando más lo necesitas.</h2>
+    </div>
+    <div class="bento">
+      <article class="card c-big tone-green">
+        <svg class="art" viewBox="0 0 400 200" aria-hidden="true">
+          <rect x="250" y="40" width="120" height="130" rx="8" fill="#fff" opacity=".95"/><rect x="295" y="60" width="30" height="30" rx="4" fill="#E5484D"/><path d="M310 64v22M299 75h22" stroke="#fff" stroke-width="6"/>
+          <g fill="#DDEFE0"><rect x="262" y="104" width="22" height="18" rx="3"/><rect x="298" y="104" width="22" height="18" rx="3"/><rect x="334" y="104" width="22" height="18" rx="3"/></g><rect x="296" y="134" width="28" height="36" rx="4" fill="#2E7D3A"/>
+          <line x1="0" y1="172" x2="400" y2="172" stroke="#fff" stroke-width="3" opacity=".5"/>
+          <g class="walk-pair"><g class="fig"><circle cx="40" cy="96" r="11" fill="#0B1F3A"/><rect x="30" y="110" width="20" height="40" rx="9" fill="#0B1F3A"/><line class="lg l1" x1="36" y1="146" x2="36" y2="171" stroke="#0B1F3A" stroke-width="7" stroke-linecap="round"/><line class="lg l2" x1="44" y1="146" x2="44" y2="171" stroke="#0B1F3A" stroke-width="7" stroke-linecap="round"/><path d="M56 128 L60 171" stroke="#FFCC00" stroke-width="4" stroke-linecap="round"/></g><path d="M50 122 L74 124" stroke="#FFCC00" stroke-width="6" stroke-linecap="round"/><g class="fig" transform="translate(42 -6)"><circle cx="40" cy="96" r="12" fill="#FFCC00"/><rect x="29" y="110" width="22" height="46" rx="10" fill="#FFCC00"/><line class="lg l2" x1="36" y1="150" x2="36" y2="177" stroke="#FFCC00" stroke-width="8" stroke-linecap="round"/><line class="lg l1" x1="44" y1="150" x2="44" y2="177" stroke="#FFCC00" stroke-width="8" stroke-linecap="round"/></g></g>
+        </svg>
+        <div class="txt"><span class="num">01</span><h3>Acompañamiento</h3><p>Vamos contigo a citas médicas, al hospital, al banco o a una oficina, para que no tengas que ir solo.</p></div>
+      </article>
+      <article class="card tone-blue">
+        <svg class="art" viewBox="0 0 200 140" aria-hidden="true"><path d="M40 70 L100 24 L160 70" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/><rect x="54" y="66" width="92" height="62" rx="6" fill="#fff"/><path class="beat-heart" d="M100 112 C84 101 78 94 78 86 C78 80 83 75 89 75 C94 75 98 78 100 82 C102 78 106 75 111 75 C117 75 122 80 122 86 C122 94 116 101 100 112Z" fill="#E5484D"/></svg>
+        <div class="txt"><span class="num">02</span><h3>Visitas</h3><p>Visitamos a abuelitos y personas enfermas en su casa, residencia u hospital. Compañía y conversación en español.</p></div>
+      </article>
+      <article class="card tone-gold">
+        <svg class="art" viewBox="0 0 200 140" aria-hidden="true"><g class="road-lines"><path d="M-40 118 H260" stroke="#0B1F3A" stroke-width="4" stroke-dasharray="18 14" opacity=".35"/></g><g class="car"><path d="M40 100 V84 L56 64 H120 L142 84 H156 V100 Z" fill="#0B1F3A"/><path d="M62 70 H88 V84 H52 Z M94 70 H116 L132 84 H94 Z" fill="#BFE0FF"/><circle cx="66" cy="102" r="12" fill="#0B1F3A" stroke="#FFCC00" stroke-width="5"/><circle cx="132" cy="102" r="12" fill="#0B1F3A" stroke="#FFCC00" stroke-width="5"/><rect x="40" y="56" width="70" height="8" rx="4" fill="#fff"/></g></svg>
+        <div class="txt"><span class="num">03</span><h3>Transporte</h3><p>Te llevamos a tus citas, compras y diligencias cuando no tienes cómo moverte, con nieve o sin nieve.</p></div>
+      </article>
+      <article class="card tone-navy">
+        <svg class="art" viewBox="0 0 200 140" aria-hidden="true"><g class="bub b-es"><rect x="14" y="20" width="96" height="44" rx="22" fill="#FFCC00"/><path d="M34 62 L30 78 L48 62Z" fill="#FFCC00"/><text x="62" y="49" text-anchor="middle">¡Hola!</text></g><g class="bub b-fr"><rect x="90" y="70" width="100" height="44" rx="22" fill="#fff"/><path d="M170 112 L174 128 L156 112Z" fill="#fff"/><text x="140" y="99" text-anchor="middle" fill="#174E86">Bonjour</text></g></svg>
+        <div class="txt"><span class="num">04</span><h3>Traducción</h3><p>Te ayudamos con el francés y el inglés en citas, llamadas, cartas y formularios.</p></div>
+      </article>
+      <article class="card tone-cream">
+        <svg class="art" viewBox="0 0 200 140" aria-hidden="true"><path d="M100 22 V122 M70 122 H130" stroke="#0B1F3A" stroke-width="6" stroke-linecap="round"/><g class="scale-beam"><path d="M40 40 H160" stroke="#0B1F3A" stroke-width="6" stroke-linecap="round"/><g class="pan-l"><path d="M40 40 L24 82 M40 40 L56 82" stroke="#0B1F3A" stroke-width="2.5"/><path d="M18 82 H62 A22 12 0 0 1 18 82Z" fill="#2FA84F"/></g><g class="pan-r"><path d="M160 40 L144 82 M160 40 L176 82" stroke="#0B1F3A" stroke-width="2.5"/><path d="M138 82 H182 A22 12 0 0 1 138 82Z" fill="#3A8AC4"/></g></g><circle cx="100" cy="40" r="8" fill="#FFCC00"/></svg>
+        <div class="txt"><span class="num">05</span><h3>Asistencia legal</h3><p>Te orientamos y te conectamos con abogados y clínicas jurídicas de confianza que pueden revisar tu caso.</p></div>
+      </article>
+      <article class="card tone-red">
+        <svg class="art" viewBox="0 0 200 140" aria-hidden="true"><rect x="56" y="14" width="88" height="112" rx="8" fill="#fff"/><path d="M72 38 H128 M72 54 H128 M72 70 H110" stroke="#C9D3DE" stroke-width="6" stroke-linecap="round"/><g class="stamp"><rect x="96" y="80" width="56" height="34" rx="6" fill="none" stroke="#2FA84F" stroke-width="5" transform="rotate(-12 124 97)"/><text x="124" y="103" text-anchor="middle" transform="rotate(-12 124 97)" fill="#2FA84F" font-size="15" font-weight="800">LISTO</text></g></svg>
+        <div class="txt"><span class="num">06</span><h3>Trámites</h3><p>Te guiamos con la tarjeta de salud, papeles, ayudas del gobierno y todo lo que hay que hacer al llegar a Quebec.</p></div>
+      </article>
+      <article class="card c-wide tone-sky">
+        <svg class="art" viewBox="0 0 400 140" aria-hidden="true" id="circleArt"></svg>
+        <div class="txt"><span class="num">07</span><h3>Comunidad</h3><p>Encuentros entre latinos para hacer amigos, compartir una arepa y sentirse en casa aunque estemos lejos.</p></div>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- ═══ VALORES: palabras cinéticas ═══ -->
-<section class="values" aria-label="Nuestros valores">
-  <div class="values-row"><span>Dignidad</span><span class="o">Empatía</span><span>Confianza</span><span class="o">Comunidad</span><span>Dignidad</span><span class="o">Empatía</span></div>
-  <div class="values-row rev"><span class="o">Esperanza</span><span>Respeto</span><span class="o">Familia</span><span>Futuro</span><span class="o">Esperanza</span><span>Respeto</span></div>
-</section>
-
-<!-- ═══ CÓMO AYUDAMOS (scroll horizontal) ═══ -->
-<section class="help" id="ayuda">
-  <div class="help-pin" id="helpPin">
-    <div class="wrap help-head">
-      <p class="kicker">Cómo te ayudamos</p>
-      <h2 class="title">Un voluntario a tu lado<br><em>cuando más lo necesitas.</em></h2>
-    </div>
-    <div class="help-track" id="helpTrack">
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><path d="M32 6 L54 14 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V14 Z"/><path d="M22 32 L29 39 L43 25"/></svg></div><span class="hn">01</span><h3>Acompañamiento</h3><p>Vamos contigo a citas médicas, al hospital, al banco o a una oficina, para que no tengas que ir solo.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><path d="M8 30 L32 10 L56 30"/><path d="M14 26 V54 H50 V26"/><path d="M32 46 C26 42 24 39 24 36 C24 33 26 31 28 31 C30 31 31 32 32 34 C33 32 34 31 36 31 C38 31 40 33 40 36 C40 39 38 42 32 46Z"/></svg></div><span class="hn">02</span><h3>Visitas</h3><p>Visitamos a adultos mayores y personas enfermas en su casa, residencia u hospital. Un rato de compañía y conversación en español.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><path d="M8 40 V30 L14 18 H44 L54 30 H58 V40 Z"/><circle cx="18" cy="42" r="6"/><circle cx="46" cy="42" r="6"/><path d="M16 30 H50"/></svg></div><span class="hn">03</span><h3>Transporte</h3><p>Te llevamos a tus citas médicas, compras y diligencias importantes cuando no tienes cómo moverte.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><rect x="6" y="10" width="32" height="24" rx="6"/><path d="M14 34 V42 L22 34"/><rect x="26" y="26" width="32" height="24" rx="6"/><path d="M50 50 V58 L42 50"/><path d="M14 20 H30 M34 36 H50"/></svg></div><span class="hn">04</span><h3>Traducción</h3><p>Te ayudamos con el francés y el inglés en citas, llamadas, cartas y formularios, para que entiendas todo.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><path d="M32 8 V56 M20 56 H44"/><path d="M12 18 H52"/><path d="M12 18 L4 36 C4 40 20 40 20 36 Z"/><path d="M52 18 L44 36 C44 40 60 40 60 36 Z"/></svg></div><span class="hn">05</span><h3>Asistencia legal</h3><p>Te orientamos y te conectamos con abogados y clínicas jurídicas de confianza que pueden revisar tu caso.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="6"/><path d="M22 20 H42 M22 30 H42 M22 40 H34"/></svg></div><span class="hn">06</span><h3>Trámites</h3><p>Te guiamos con tarjeta de salud, papeles, ayudas del gobierno y todo lo que hay que hacer al llegar a Quebec.</p></article>
-      <article class="hcard"><div class="hicon"><svg viewBox="0 0 64 64"><circle cx="22" cy="20" r="8"/><circle cx="44" cy="20" r="8"/><path d="M6 52 C6 40 14 34 22 34 C30 34 38 40 38 52"/><path d="M30 38 C34 35 38 34 44 34 C52 34 58 40 58 52"/></svg></div><span class="hn">07</span><h3>Comunidad</h3><p>Encuentros entre latinos para hacer amigos, compartir y sentirse en casa aunque estemos lejos.</p></article>
-      <article class="hcard hcard-cta"><h3>¿No ves lo que necesitas?</h3><p>Escríbenos igual. Si no podemos ayudarte nosotros, buscamos quién pueda.</p><a href="#contacto" class="btn btn-sun">Escríbenos <i>→</i></a></article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROCESO: línea que se dibuja ═══ -->
-<section class="process" id="proceso">
+<!-- ═══ CÓMO FUNCIONA: línea de métro ═══ -->
+<section class="metro" id="metro">
   <div class="wrap">
-    <div class="center-head">
-      <p class="kicker reveal">El proceso</p>
-      <h2 class="title reveal">Así de simple es<br><em>pedir ayuda.</em></h2>
+    <div class="head light">
+      <p class="kicker">Cómo funciona</p>
+      <h2 class="h2 split">Pedir ayuda es tan fácil como tomar el métro.</h2>
     </div>
-    <div class="steps" id="steps">
-      <svg class="steps-line" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true"><path id="stepsPath" d="M40 100 C200 20 300 180 500 100 S800 20 960 100"/></svg>
-      <div class="step"><div class="sb">1</div><h3>Nos contactas</h3><p>Tú o un familiar, por WhatsApp, llamada o el formulario.</p></div>
-      <div class="step"><div class="sb">2</div><h3>Te escuchamos</h3><p>Nos cuentas tu situación con calma, en tu idioma y en confianza.</p></div>
-      <div class="step"><div class="sb">3</div><h3>Te asignamos un voluntario</h3><p>Buscamos al voluntario indicado para lo que necesitas.</p></div>
-      <div class="step"><div class="sb">4</div><h3>Te acompañamos</h3><p>No te dejamos solo: seguimos pendientes de ti.</p></div>
+    <div class="line" id="line">
+      <div class="rail"><i id="railFill"></i></div>
+      <div class="train" id="train"><span></span><span></span><span></span></div>
+      <div class="stn" data-i="0"><b></b><small>Station 1</small><h3>Nos contactas</h3><p>Tú o un familiar, por WhatsApp, llamada o el formulario.</p></div>
+      <div class="stn" data-i="1"><b></b><small>Station 2</small><h3>Te escuchamos</h3><p>Nos cuentas tu situación con calma, en español y en confianza.</p></div>
+      <div class="stn" data-i="2"><b></b><small>Station 3</small><h3>Te asignamos un voluntario</h3><p>Buscamos a la persona indicada para lo que necesitas.</p></div>
+      <div class="stn" data-i="3"><b></b><small>Terminus</small><h3>Te acompañamos</h3><p>No te dejamos solo: seguimos pendientes de ti.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROMESA ═══ -->
-<section class="promise">
-  <div class="wrap promise-grid">
-    <div class="promise-copy">
-      <p class="kicker reveal">Nuestra promesa</p>
-      <h2 class="title light reveal">Aquí no eres un número.<br><em>Eres familia.</em></h2>
-      <p class="lead light reveal">Todos nosotros también llegamos de lejos. Sabemos lo que se siente. Por eso tratamos a cada persona, y sobre todo a nuestros mayores, con respeto, paciencia y cariño.</p>
-    </div>
-    <div class="promise-list">
-      <div class="pitem reveal"><span class="pi">✓</span><div><b>Ayuda gratuita</b><p>Somos voluntarios: no cobramos por acompañarte.</p></div></div>
-      <div class="pitem reveal"><span class="pi">✓</span><div><b>Tu información es privada</b><p>Lo que nos cuentas queda entre nosotros.</p></div></div>
-      <div class="pitem reveal"><span class="pi">✓</span><div><b>Hablamos español</b><p>Y te ayudamos con el francés y el inglés.</p></div></div>
-      <div class="pitem reveal"><span class="pi">✓</span><div><b>Sin juicios</b><p>Te ayudamos sin importar tu historia ni de qué país vienes.</p></div></div>
-    </div>
+<!-- ═══ QUIÉNES SOMOS: Venezuela + Quebec ═══ -->
+<section class="who" id="somos">
+  <div class="flags">
+    <div class="flag ve" aria-hidden="true"><i class="y"></i><i class="bl"></i><i class="r"></i><svg class="arc" viewBox="0 0 200 100" id="veStars"></svg><span>Venimos de allá</span></div>
+    <div class="flag qc" aria-hidden="true"><i class="h"></i><i class="v"></i><svg class="fl f1" viewBox="0 0 40 48"><use href="#fleur"/></svg><svg class="fl f2" viewBox="0 0 40 48"><use href="#fleur"/></svg><svg class="fl f3" viewBox="0 0 40 48"><use href="#fleur"/></svg><svg class="fl f4" viewBox="0 0 40 48"><use href="#fleur"/></svg><span>Vivimos aquí</span></div>
+    <img class="who-logo" src="logo-full.webp" alt="Fundación Carlos Barela" width="260" height="225">
   </div>
-  <svg class="town" id="town" viewBox="0 0 1440 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <div class="wrap who-copy">
+    <p class="kicker">Quiénes somos</p>
+    <p class="big-quote split-words">Somos venezolanos y latinos que también llegamos de lejos. Sabemos lo que es enfermarse sin nadie que te lleve al médico, envejecer lejos de la familia o pelear con el francés y los trámites. Por eso nos organizamos: para que ningún latino en Montreal pase por eso solo.</p>
+    <ul class="promises">
+      <li><b>Ayuda gratuita</b><span>Somos voluntarios: no cobramos por acompañarte.</span></li>
+      <li><b>Hablamos español</b><span>Y te ayudamos con el francés y el inglés.</span></li>
+      <li><b>Tu información es privada</b><span>Lo que nos cuentas queda entre nosotros.</span></li>
+      <li><b>Sin juicios</b><span>Te ayudamos sin importar tu historia ni de qué país vienes.</span></li>
+    </ul>
+  </div>
 </section>
 
 <!-- ═══ SÚMATE ═══ -->
 <section class="join" id="sumate">
-  <div class="wrap">
-    <div class="center-head">
-      <p class="kicker reveal">Súmate</p>
-      <h2 class="title reveal">Tu ayuda <em>cambia una vida.</em></h2>
-      <p class="lead reveal" style="margin-inline:auto">Cada donación, cada hora de voluntariado y cada alianza nos permite acompañar a más latinos en Montreal que hoy no tienen a nadie.</p>
-    </div>
+  <svg class="plateau" viewBox="0 0 600 400" aria-hidden="true" id="plateauArt"></svg>
+  <div class="wrap join-in">
+    <p class="kicker dark">Súmate</p>
+    <h2 class="join-title">¿Tienes <span class="rot" id="rot"><span>carro?</span><span>tiempo?</span><span>francés?</span><span>corazón?</span></span></h2>
+    <p class="join-sub">Entonces ya puedes ayudar. Buscamos voluntarios que manejen, hablen francés, sepan de leyes o salud, o simplemente quieran visitar a un abuelito que está solo.</p>
     <div class="join-grid">
-      <article class="jcard reveal"><div class="jart"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="46" class="c1"/><path d="M60 84 C40 70 32 60 32 50 C32 42 38 36 46 36 C52 36 57 40 60 45 C63 40 68 36 74 36 C82 36 88 42 88 50 C88 60 80 70 60 84Z" class="h"/></svg></div><h3>Dona</h3><p>Tu aporte cubre gasolina para llevar a citas, traducciones y ayuda de emergencia.</p><a href="#contacto" class="btn btn-green magnetic" data-motivo="Quiero donar">Quiero donar <i>→</i></a></article>
-      <article class="jcard reveal"><div class="jart"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="46" class="c1"/><path d="M38 70 L52 56 C55 53 60 53 63 56 L70 63" class="s"/><path d="M82 50 L68 64 C65 67 60 67 57 64" class="s"/><path d="M30 62 L40 52 M90 58 L80 68" class="s"/></svg></div><h3>Sé voluntario</h3><p>¿Tienes carro, hablas francés, sabes de leyes o salud, o simplemente tienes tiempo y corazón? Te necesitamos.</p><a href="#contacto" class="btn btn-green magnetic" data-motivo="Quiero ser voluntario">Quiero ser voluntario <i>→</i></a></article>
-      <article class="jcard reveal"><div class="jart"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="46" class="c1"/><rect x="36" y="44" width="48" height="36" rx="6" class="s"/><path d="M50 44 V38 H70 V44 M36 60 H84" class="s"/></svg></div><h3>Sé aliado</h3><p>Negocios, iglesias y organizaciones latinas de Montreal: unamos fuerzas para llegar a más personas.</p><a href="#contacto" class="btn btn-green magnetic" data-motivo="Quiero ser aliado">Quiero ser aliado <i>→</i></a></article>
+      <a href="#contacto" class="jbox" data-motivo="Quiero ser voluntario"><b>Sé voluntario</b><span>Dona unas horas al mes.</span><i>→</i></a>
+      <a href="#contacto" class="jbox" data-motivo="Quiero donar"><b>Dona</b><span>Gasolina, traducciones y ayudas de emergencia.</span><i>→</i></a>
+      <a href="#contacto" class="jbox" data-motivo="Quiero ser aliado"><b>Sé aliado</b><span>Negocios, iglesias y organizaciones latinas.</span><i>→</i></a>
     </div>
   </div>
 </section>
 
 <!-- ═══ PREGUNTAS ═══ -->
 <section class="faq" id="preguntas">
-  <div class="wrap faq-grid">
-    <div>
-      <p class="kicker reveal">Preguntas frecuentes</p>
-      <h2 class="title reveal">Resolvemos<br><em>tus dudas.</em></h2>
-      <p class="lead reveal">¿Tienes otra pregunta? Escríbenos y te respondemos con gusto.</p>
-    </div>
+  <div class="wrap faq-in">
+    <div><p class="kicker">Preguntas frecuentes</p><h2 class="h2">Resolvemos tus dudas.</h2></div>
     <div class="faq-list">
-      <details class="reveal" open><summary>¿Tengo que pagar por la ayuda?<i></i></summary><p>No. Somos voluntarios y nuestro acompañamiento es gratuito.</p></details>
-      <details class="reveal"><summary>¿Puedo pedir ayuda para un familiar mayor o enfermo?<i></i></summary><p>Sí. Muchas veces nos escriben hijos o nietos que viven lejos. Cuéntanos la situación y buscamos un voluntario que lo visite o lo acompañe.</p></details>
-      <details class="reveal"><summary>¿Me ayudan si no tengo mi estatus resuelto?<i></i></summary><p>Sí. Ayudamos a todos los latinos sin importar su situación migratoria. Tu información es confidencial.</p></details>
-      <details class="reveal"><summary>¿Ustedes dan asesoría legal?<i></i></summary><p>Te orientamos y te conectamos con abogados y clínicas jurídicas de confianza que pueden revisar tu caso. Las decisiones legales siempre las debe tomar un profesional autorizado.</p></details>
-      <details class="reveal"><summary>¿Cómo me hago voluntario?<i></i></summary><p>Escríbenos por el formulario o WhatsApp contándonos cómo te gustaría ayudar y en qué horarios. No necesitas experiencia, solo ganas.</p></details>
+      <details open><summary>¿Tengo que pagar por la ayuda?<i></i></summary><p>No. Somos voluntarios y nuestro acompañamiento es gratuito.</p></details>
+      <details><summary>¿Puedo pedir ayuda para un familiar mayor o enfermo?<i></i></summary><p>Sí. Muchas veces nos escriben hijos o nietos que viven lejos. Cuéntanos la situación y buscamos un voluntario que lo visite o lo acompañe.</p></details>
+      <details><summary>¿Me ayudan si no tengo mi estatus resuelto?<i></i></summary><p>Sí. Ayudamos a todos los latinos sin importar su situación migratoria. Tu información es confidencial.</p></details>
+      <details><summary>¿Ustedes dan asesoría legal?<i></i></summary><p>Te orientamos y te conectamos con abogados y clínicas jurídicas de confianza que pueden revisar tu caso. Las decisiones legales siempre las debe tomar un profesional autorizado.</p></details>
+      <details><summary>¿Cómo me hago voluntario?<i></i></summary><p>Escríbenos por el formulario o WhatsApp contándonos cómo te gustaría ayudar y en qué horarios. No necesitas experiencia, solo ganas.</p></details>
     </div>
   </div>
 </section>
 
 <!-- ═══ CONTACTO ═══ -->
 <section class="contact" id="contacto">
-  <div class="wrap contact-grid">
-    <div class="contact-copy">
-      <p class="kicker reveal">Contacto</p>
-      <h2 class="title light reveal">Estamos aquí<br><em>para ti.</em></h2>
-      <p class="lead light reveal">Cuéntanos qué necesitas. Te respondemos lo antes posible por el medio que prefieras.</p>
-      <div class="channels reveal">
+  <svg class="bridge" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" id="bridgeArt"></svg>
+  <div class="wrap contact-in">
+    <div>
+      <p class="kicker">Contacto</p>
+      <h2 class="h2 light">Escríbenos. <span class="gold-t">Aquí estamos.</span></h2>
+      <p class="lead">Cuéntanos qué necesitas y te respondemos lo antes posible.</p>
+      <div class="channels">
         <a class="ch" href="#" data-wa><span>WhatsApp</span><b>[número]</b></a>
         <a class="ch" href="#" data-mail><span>Email</span><b>[email]</b></a>
       </div>
     </div>
-    <form class="form reveal" id="form">
+    <form class="form" id="form">
       <div class="row2">
         <label><span>Nombre</span><input name="nombre" required placeholder="Tu nombre"></label>
         <label><span>Teléfono o WhatsApp</span><input name="telefono" required placeholder="+1 514 ..."></label>
@@ -221,10 +219,8 @@
         </select>
       </label>
       <label><span>Cuéntanos un poco <small>(opcional)</small></span><textarea name="mensaje" rows="3" placeholder="Escribe aquí..."></textarea></label>
-      <label><span>Idioma preferido</span>
-        <div class="seg" id="idioma"><button type="button" class="on">Español</button><button type="button">Français</button><button type="button">English</button></div>
-      </label>
-      <button class="btn btn-sun btn-lg" type="submit">Enviar por WhatsApp <i>→</i></button>
+      <div class="seg-wrap"><span>Idioma preferido</span><div class="seg" id="idioma"><button type="button" class="on">Español</button><button type="button">Français</button><button type="button">English</button></div></div>
+      <button class="pill-btn gold big full" type="submit">Enviar por WhatsApp <i>→</i></button>
       <p class="fine">Tu información es confidencial y solo se usa para responderte.</p>
     </form>
   </div>
@@ -232,14 +228,18 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap footer-in">
-    <div class="fb"><img src="favicon.png" alt=""><div><b>Fundación Carlos Barela</b><p>Voluntarios latinos en Montreal.</p></div></div>
-    <nav><a href="#mision">Misión</a><a href="#ayuda">Cómo ayudamos</a><a href="#sumate">Súmate</a><a href="#contacto">Contacto</a></nav>
-    <p class="copy">© 2026 Fundación Carlos Barela. Todos los derechos reservados.</p>
+  <div class="wrap foot-in">
+    <div class="fb"><img src="favicon.png" alt="" width="52" height="52"><div><b>Fundación Carlos Barela</b><span>Del Ávila al Mont Royal · Voluntarios latinos en Montreal</span></div></div>
+    <nav><a href="#hacemos">Qué hacemos</a><a href="#somos">Quiénes somos</a><a href="#sumate">Súmate</a><a href="#contacto">Contacto</a></nav>
+    <p class="copy">© 2026 Fundación Carlos Barela</p>
   </div>
+  <div class="tricolor bottom" aria-hidden="true"><i></i><i></i><i></i></div>
 </footer>
 
 <a class="fab" href="#" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 3a8.5 8.5 0 0 0-7.3 12.9L3.6 20.4l4.6-1.1A8.5 8.5 0 1 0 12 3zm4.9 12.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3 0 .2 0 .7-.2 1.2z"/></svg></a>
+
+<!-- flor de lis reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="fleur" viewBox="0 0 40 48"><path fill="#fff" d="M20 2C14 9 13 17 17 24C13 22 8 21 5 24C2 27 3 33 8 33C6 30 8 27 11 28C14 29 15 32 15 34H13V37H17C17 41 15 44 12 46H28C25 44 23 41 23 37H27V34H25C25 32 26 29 29 28C32 27 34 30 32 33C37 33 38 27 35 24C32 21 27 22 23 24C27 17 26 9 20 2Z"/></symbol></svg>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
