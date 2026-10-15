@@ -83,23 +83,44 @@
     winTimer = setInterval(() => { const w = townWins[Math.floor(Math.random() * townWins.length)]; w.classList.toggle('on'); }, 900);
   }
 
-  /* ─── hojas flotando (canvas) ─── */
+  /* ─── mensajes de apoyo y corazones que suben (canvas) ─── */
   const cv = $('#leaves'), cx = cv.getContext('2d');
-  let W, H, leaves = [];
+  const MSGS = ['¿Cómo estás?', 'Aquí estoy', 'Te acompaño', 'No estás solo', '¿Te llevo?', 'Cuenta conmigo', 'Un abrazo'];
+  let W, H, floats = [], msgI = 0;
   const dpr = Math.min(devicePixelRatio || 1, 1.5);
+  const wide = () => innerWidth > 1000;
+  function spawn(f, first) {
+    // en escritorio los mensajes salen por el lado del mapa para no tapar el título; en celular solo corazones
+    const msg = wide() && Math.random() < 0.3;
+    f.msg = msg ? MSGS[msgI++ % MSGS.length] : null;
+    f.x = msg ? W * (0.55 + Math.random() * 0.4) : Math.random() * W;
+    f.y = first ? Math.random() * H : H + 40 * dpr;
+    f.s = (msg ? 1 : 8 + Math.random() * 9) * dpr;
+    f.vy = (0.25 + Math.random() * 0.3) * dpr; f.ph = Math.random() * 6.28;
+    f.c = ['#2FA84F', '#3FC35F', '#F5C842', '#7BE38F'][Math.floor(Math.random() * 4)];
+    return f;
+  }
   function sizeLeaves() {
     W = cv.width = cv.offsetWidth * dpr; H = cv.height = cv.offsetHeight * dpr;
-    leaves = Array.from({length: touch ? 12 : 22}, () => ({x: Math.random() * W, y: Math.random() * H, s: (10 + Math.random() * 14) * dpr, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.02, vy: (0.3 + Math.random() * 0.5) * dpr, ph: Math.random() * 6.28, c: ['#2FA84F', '#3FC35F', '#7BE38F', '#F5C842'][Math.floor(Math.random() * 4)]}));
+    floats = Array.from({length: wide() ? 12 : 9}, () => spawn({}, true));
   }
   sizeLeaves(); addEventListener('resize', sizeLeaves);
+  function heart(s) { cx.beginPath(); cx.moveTo(0, s * 0.9); cx.bezierCurveTo(-s * 1.6, -s * 0.1, -s * 0.8, -s * 1.3, 0, -s * 0.45); cx.bezierCurveTo(s * 0.8, -s * 1.3, s * 1.6, -s * 0.1, 0, s * 0.9); cx.fill(); }
+  function bubble(text) {
+    cx.font = `700 ${14 * dpr}px "Plus Jakarta Sans", sans-serif`;
+    const w = cx.measureText(text).width + 26 * dpr, h = 34 * dpr, r = h / 2;
+    cx.fillStyle = '#fff'; cx.strokeStyle = 'rgba(31,122,57,.25)'; cx.lineWidth = 1.5 * dpr;
+    cx.beginPath(); cx.roundRect(-w / 2, -h / 2, w, h, r); cx.moveTo(-w / 2 + 16 * dpr, h / 2 - 2); cx.lineTo(-w / 2 + 12 * dpr, h / 2 + 9 * dpr); cx.lineTo(-w / 2 + 28 * dpr, h / 2 - 2); cx.fill(); cx.stroke();
+    cx.fillStyle = '#1F7A39'; cx.textAlign = 'center'; cx.textBaseline = 'middle'; cx.fillText(text, 0, 1);
+  }
   function drawLeaves(t) {
     cx.clearRect(0, 0, W, H);
-    for (const l of leaves) {
-      l.y += l.vy; l.x += Math.sin(t * 0.8 + l.ph) * 0.6 * dpr; l.r += l.vr;
-      if (l.y > H + 30) { l.y = -30; l.x = Math.random() * W; }
-      cx.save(); cx.translate(l.x, l.y); cx.rotate(l.r); cx.globalAlpha = 0.55;
-      cx.fillStyle = l.c; cx.beginPath(); cx.moveTo(0, -l.s); cx.quadraticCurveTo(l.s * 0.7, 0, 0, l.s); cx.quadraticCurveTo(-l.s * 0.7, 0, 0, -l.s); cx.fill();
-      cx.strokeStyle = 'rgba(255,255,255,.5)'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(0, -l.s * 0.8); cx.lineTo(0, l.s * 0.8); cx.stroke();
+    for (const f of floats) {
+      f.y -= f.vy; const x = f.x + Math.sin(t * 0.7 + f.ph) * 10 * dpr;
+      if (f.y < -40 * dpr) spawn(f);
+      const k = f.y / H, a = Math.max(0, Math.min(1, (1 - k) * 4, k * 4)); // aparece abajo y se desvanece arriba
+      cx.save(); cx.translate(x, f.y); cx.globalAlpha = a * (f.msg ? 0.95 : 0.5);
+      if (f.msg) bubble(f.msg); else { cx.rotate(Math.sin(t + f.ph) * 0.25); cx.fillStyle = f.c; heart(f.s); }
       cx.restore();
     }
   }
