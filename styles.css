@@ -1,6 +1,6 @@
 :root{
   --g:#2FA84F; --g2:#3FC35F; --g3:#7BE38F; --gd:#1F7A39; --forest:#0E3B22; --night:#08261A;
-  --sun:#F5C842; --cream:#F7F5EC; --paper:#FFFFFF; --ink:#13241A; --mut:#5D6B62; --line:rgba(19,36,26,.1);
+  --sun:#F5C842; --sky:#3A8AC4; --navy:#174E86; --olive:#8DB54A; --cream:#F7F5EC; --paper:#FFFFFF; --ink:#13241A; --mut:#5D6B62; --line:rgba(19,36,26,.1);
   --serif:'Fraunces',Georgia,serif; --sans:'Plus Jakarta Sans',system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1); --r:26px;
 }
@@ -17,12 +17,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--g)}
 
 /* carga */
 .loader{position:fixed;inset:0;z-index:300;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .7s var(--ease),visibility .7s}
-.loader span{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--forest);opacity:0;animation:fadeup .8s .6s forwards}
-.loader svg path{fill:none;stroke:var(--g);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
-.l-ground{stroke:var(--gd)!important;stroke-dasharray:70;stroke-dashoffset:70;animation:draw .5s forwards}
-.l-stem{stroke-dasharray:60;stroke-dashoffset:60;animation:draw .6s .3s forwards}
-.l-leaf{fill:var(--g)!important;stroke:none!important;transform-box:fill-box;transform:scale(0);animation:pop .55s var(--ease) forwards}
-.l1{transform-origin:right bottom;animation-delay:.7s}.l2{transform-origin:left bottom;animation-delay:.9s;fill:var(--sun)!important}
+.loader-logo{width:min(260px,60vw);height:auto;animation:logo-in 1.1s var(--ease) both}
+@keyframes logo-in{from{opacity:0;transform:translateY(16px) scale(.92);clip-path:inset(100% 0 0 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
 body.ready .loader{opacity:0;visibility:hidden}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes pop{to{transform:scale(1)}}
@@ -33,9 +29,9 @@ body.ready .loader{opacity:0;visibility:hidden}
 .header.scrolled{background:rgba(247,245,236,.94);box-shadow:0 1px 0 var(--line)}
 .header-in{display:flex;align-items:center;gap:26px;height:78px}
 .brand{display:flex;align-items:center;gap:11px;margin-right:auto}
-.brand img{width:44px;height:44px}
+.brand img{height:40px;width:auto}
 .brand span{display:flex;flex-direction:column;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gd);line-height:1.15}
-.brand b{font-family:var(--serif);font-size:20px;letter-spacing:0;text-transform:none;color:var(--forest);font-weight:900}
+.brand b{font-family:var(--serif);font-size:20px;letter-spacing:0;text-transform:none;color:var(--navy);font-weight:900}
 .nav{display:flex;gap:26px;font-size:15px;font-weight:600}
 .nav a{position:relative;color:var(--ink)}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--g);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
@@ -78,7 +74,7 @@ body.menu .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .hero-title{font-family:var(--serif);font-weight:900;font-size:clamp(50px,6.2vw,92px);line-height:.98;letter-spacing:-.035em;color:var(--forest);margin-bottom:26px}
 .hero-title .line{display:block;overflow:hidden;padding-bottom:.06em}
 .hero-title .line>span{display:inline-block}
-.hero-title em{font-weight:900;color:var(--g)}
+.hero-title em{font-weight:900;color:var(--g);background:linear-gradient(90deg,var(--olive),var(--g) 45%,var(--sky));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-right:.08em}
 .hero-sub{font-size:clamp(17px,1.4vw,20px);color:var(--mut);max-width:540px;margin-bottom:32px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
 .pills{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
@@ -94,7 +90,7 @@ body.menu .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .pulse-glow{transform-origin:330px 250px;animation:breathe 4s ease-in-out infinite}
 @keyframes breathe{50%{transform:scale(1.12);opacity:.75}}
 .langs rect{fill:#fff;stroke:rgba(19,36,26,.12)}
-.langs text{font-family:var(--sans);font-size:15px;font-weight:800;fill:var(--gd);text-anchor:middle}
+.langs text{font-family:var(--sans);font-size:15px;font-weight:800;fill:var(--navy);text-anchor:middle}
 /* caminantes: personas que llegan con sus maletas */
 .walkers{position:absolute;left:0;right:0;bottom:0;height:150px;z-index:3;pointer-events:none;overflow:hidden}
 .walk-track{position:absolute;left:0;bottom:22px;display:flex;width:max-content;animation:walk-across 70s linear infinite;will-change:transform}
@@ -227,7 +223,7 @@ body.menu .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .footer{background:var(--night);color:#a9cdb3;border-top:1px solid rgba(255,255,255,.08);padding:34px 0}
 .footer-in{display:flex;flex-wrap:wrap;align-items:center;gap:24px;justify-content:space-between}
 .fb{display:flex;align-items:center;gap:12px;color:#fff}
-.fb img{width:44px}
+.fb img{width:52px}
 .fb p{color:#a9cdb3;font-size:14px}
 .footer nav{display:flex;gap:20px;font-weight:600}
 .footer nav a:hover{color:#fff}
